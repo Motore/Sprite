@@ -316,6 +316,18 @@ void Graphics::PutPixel( int x,int y,Color c )
 	pSysBuffer[Graphics::ScreenWidth * y + x] = c;
 }
 
+void Graphics::DrawSprite(int x, int y, const Surface& surf)
+{
+	for (int sy = 0; sy < surf.GetHeight(); sy++)
+	{
+		for (int sx = 0; sx < surf.GetWidth(); sx++)
+		{
+			PutPixel(x + sx, y + sy, surf.GetPixel(sx, sy));
+		}
+	}
+
+}
+
 
 //////////////////////////////////////////////////
 //           Graphics Exception
